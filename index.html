@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="/scripts/main.js" type="module" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__body container">
+            <h1 class="header__title">TODO LIST</h1>
+            <form action="" class="header__form">
+                <div class="header__search-inner">
+                    <label for="searchInput" class="visually-hidden">Search Todo Item</label>
+                    <input type="text" id="searchInput" class="header__input input" placeholder="Search note...">
+                </div>
+                <div class="header__form-inner">
+                    <select id="select" class="header__select select button" data-js-select>
+                        <option value="All">ALL</option>
+                        <option value="Complete">Complete</option>
+                        <option value="Incomplete">Incomplete</option>
+                    </select>
+                    <!-- <label for="ThemeSwitcher" class="theme-checkbox">
+                        <input id="ThemeSwitcher" type="checkbox" class="button-theme button theme-checkbox__check"
+                        data-js-theme-switcher>
+                    </label> -->
+
+                    <button type="button" class="button button-theme" data-js-theme-switcher>
+                        <span class="visually-hidden">Switch website theme</span>
+                        <img src="./icons/svg-day.svg" alt="" width="22" height="22" loading="lazy" data-js-theme-icon
+                            class="button-theme__icon">
+                        <img src="./icons/svg-night.svg" alt="" width="22" height="22" loading="lazy"
+                            data-js-theme-icon-dark class="button-theme__icon">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1 class="visually-hidden">Todo Fields</h1>
+            <div class="section__body container">
+                <nav class="section__menu">
+                    <ul class="section__list todo-task" data-js-ul-list>
+                        <h1 class="visually-hidden">List of Todo Tasks</h1>
+                    </ul>
+                </nav>
+                <div class="section__empty" data-js-empty>
+                    <img src="./images/bcg-empty.svg" class="section__empty-image" alt="" width="221" height="174"
+                        loading="lazy">
+                    <h2 class="section__empty-title">
+                        Empty...
+                    </h2>
+                </div>
+                <button class="section__button-new-task button button--circle button--circle-add-theme"
+                    data-js-create-task-button>
+                    <span class="visually-hidden">Add new Task</span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <div class="modal-menu" data-js-modal-menu>
+        <div class="modal-menu__main">
+            <h1 class="modal-menu__title">New Note</h1>
+            <input type="text" class="modal-menu__input" placeholder="Input your note..." data-js-modal-menu-input>
+
+            <div class="modal-menu__controls">
+                <button type="button" class="modal-menu__button button button--transparent"
+                    data-js-modal-menu-close>Cancel</button>
+                <button type="button" class="modal-menu__button button" data-js-modal-menu-apply>Apply</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

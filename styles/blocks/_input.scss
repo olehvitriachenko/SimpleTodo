@@ -1,0 +1,19 @@
+@use '../helpers' as *;
+
+.input {
+    position: relative;
+    border: 1px solid var(--color-input);
+    border-radius: var(--border-radius);
+    max-height: rem(38);
+    height: 100%;
+    min-width: rem(595);
+    width: 100%;
+    background-color: transparent;
+    padding: rem(8) rem(16);
+
+    &::placeholder {
+        color: var(--color-input-p);
+    }
+
+    @include tablet
+}

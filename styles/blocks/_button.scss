@@ -1,0 +1,79 @@
+@use '../helpers' as *;
+
+.button {
+
+    border-radius: var(--border-radius);
+    background-color: var(--color-accent);
+    min-height: rem(38);
+    border: var(--border);
+    color: var(--color-light);
+
+    @include hover {
+        opacity: 0.6;
+        font-weight: 500;
+    }
+
+    &-theme {
+        position: relative;
+        @include square(rem(38));
+        padding: rem(6);
+        transition-duration: var(--transition-duration);
+
+        &__icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition-duration: 0.3s;
+            translate: -50% -50%;
+
+            &:not(.is-active) {
+                rotate: 90deg;
+                transform: scale(0);
+            }
+        }
+    }
+
+
+    &--circle {
+        @include square(rem(50));
+        border: var(--border);
+        border-radius: var(--border-r-cirle);
+        position: relative;
+
+        &-add-theme {
+
+            &::before {
+                content: '';
+                position: absolute;
+                border-radius: var(--border-radius);
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+                width: rem(24);
+                height: rem(3);
+                min-height: 2px;
+                background-color: var(--color-light);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                rotate: 90deg;
+                border-radius: var(--border-radius);
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+                width: rem(24);
+                height: rem(3);
+                min-height: 2px;
+                background-color: var(--color-light);
+            }
+        }
+    }
+
+    &--transparent {
+        background-color: transparent;
+        border: var(--border);
+        color: var(--color-accent);
+    }
+}

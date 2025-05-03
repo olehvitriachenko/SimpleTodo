@@ -1,0 +1,42 @@
+@use '../helpers' as *;
+
+.section {
+    position: relative;
+    padding-top: rem(30);
+
+    &__empty {
+        @include select;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: fluid(20, 14);
+
+
+        &-title {
+            font-weight: 400;
+            text-transform: capitalize;
+            font-size: rem(20);
+        }
+
+        &-image {
+            min-width: rem(221);
+            min-height: rem(174);
+
+        }
+    }
+
+    &__button-new-task {
+        position: fixed;
+        align-self: end;
+        top: 80%;
+        left: 75%;
+
+        @include mobile {
+            width: 40px;
+            height: 40px;
+            align-self: center;
+        }
+    }
+}

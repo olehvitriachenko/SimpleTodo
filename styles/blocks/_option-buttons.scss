@@ -1,0 +1,21 @@
+@use '../helpers' as *;
+
+.option-buttons {
+    color: var(--color-option-buttons);
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    @include select;
+
+    &--edit {
+        @include hover {
+            color: var(--color-accent) !important;
+        }
+    }
+
+    &--trash {
+        @include hover {
+            color: var(--color-red) !important;
+        }
+    }
+}

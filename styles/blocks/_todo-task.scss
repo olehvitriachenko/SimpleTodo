@@ -1,0 +1,24 @@
+@use '../helpers' as *;
+
+.todo-task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__item {
+        min-width: rem(520);
+        width: 100%;
+
+
+        &:not(:first-child) {
+            padding-top: rem(17);
+        }
+
+        &:not(:last-child) {
+            padding-bottom: rem(17);
+            border-bottom: var(--border);
+        }
+
+    }
+}

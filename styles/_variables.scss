@@ -1,0 +1,39 @@
+@use 'helpers' as *;
+
+:root {
+    --color-dark: #252525;
+    --color-dark-light: #666666;
+    --color-accent: #6c63ff;
+    --color-accent-light: #C3C1E5;
+    --color-light: #f7f7f7;
+    --color-red: #E50000;
+
+    --color-option-buttons: #CDCDCD;
+
+    --color-input-alt: var(--color-accent);
+    --color-input: var(--color-accent);
+    --color-input-p: var(--color-accent-light);
+    --color-bcg: var(--color-light);
+    --color-text: var(--color-dark);
+
+    --border: #{rem(1)} solid var(--color-accent);
+    --border-radius: #{rem(5)};
+    --border-radius-l: #{rem(16)};
+    --border-r-cirle: 50%;
+
+    --container-width: #{rem(750)};
+    --container-padding-x: #{rem(325)};
+
+    --font-famaly-base: 'Kanit', sans-serif;
+    --font-family-accent: 'Inter', sans-serif;
+    --transition-duration: 0.2s;
+
+}
+
+html.is-dark-theme {
+    --color-input: var(--color-light);
+    --color-input-p: var(--color-dark-light);
+    --color-bcg: var(--color-dark);
+    --color-text: var(--color-light);
+    --color-input-alt: var(--color-light);
+}

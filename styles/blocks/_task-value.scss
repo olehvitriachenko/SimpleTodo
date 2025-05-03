@@ -1,0 +1,27 @@
+@use '../helpers' as *;
+
+.task-value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &__form {
+        display: flex;
+        align-items: center;
+        column-gap: rem(17)
+    }
+
+    &__option {
+        @include select;
+        display: flex;
+        column-gap: rem(10)
+    }
+
+    &__button {
+        @include square(rem(18));
+
+        border: none;
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,69 @@
+@use '../helpers' as *;
+
+.modal-menu {
+    @include flex-center ($isInline: false);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    padding: 30px 18px;
+
+
+    // Для того, чтобы сделать фон полупрозрачным и с использованием переменной
+    // используется color-mix
+    background-color: color-mix(in srgb, #252525 70%, transparent);
+    overflow-y: auto;
+    transition-duration: var(--transition-duration);
+
+    &__title {
+        text-transform: uppercase;
+    }
+
+    &__main {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        width: rem(500);
+        height: rem(290);
+        padding: rem(18) rem(30);
+        border: rem(1) solid var(--color-light);
+        border-radius: var(--border-radius-l);
+        align-items: center;
+        background-color: var(--color-bcg);
+        row-gap: rem(25);
+    }
+
+    &__input {
+        width: 100%;
+        border-radius: var(--border-radius);
+        border: rem(1) solid var(--color-input-alt);
+        background-color: var(--color-bcg);
+        padding: rem(11) rem(16);
+
+        &::placeholder {
+            font-family: var(--font-family-accent);
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 100%;
+            color: var(--color-input-p);
+        }
+    }
+
+    &__controls {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: auto;
+    }
+
+    &__button {
+        padding: rem(10) rem(22);
+    }
+
+    &:not(.is-active) {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

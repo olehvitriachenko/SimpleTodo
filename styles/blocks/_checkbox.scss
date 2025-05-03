@@ -1,0 +1,7 @@
+@use '../helpers' as *;
+
+.checkbox {
+    @include square(rem(26));
+
+    border: var(--border);
+}

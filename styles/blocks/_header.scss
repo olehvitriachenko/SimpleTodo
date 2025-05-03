@@ -1,0 +1,69 @@
+@use '../helpers' as *;
+
+.header {
+
+    &__title {
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: rem(40);
+        row-gap: rem(18);
+        align-items: center;
+    }
+
+    &__form {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: center;
+        gap: rem(16);
+
+        @include tablet {
+            flex-direction: column;
+        }
+
+        &-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: rem(18);
+        }
+    }
+
+    &__input {
+        width: 1000px;
+    }
+
+    &__search-inner {
+        position: relative;
+
+
+        &::before {
+            content: '';
+            @include square(rem(21));
+            position: absolute;
+            background: url('../../icons/search-icon.svg') center/contain no-repeat;
+            top: 50%;
+            right: rem(16);
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .is-dark-theme &::before {
+            content: '';
+            @include square(rem(21));
+            position: absolute;
+            background: url('../../icons/search-icon-night.svg') center/contain no-repeat;
+            top: 50%;
+            right: rem(16);
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+    }
+
+}

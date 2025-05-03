@@ -24,9 +24,9 @@
 }
 
 .removing {
-    transform: translateX(-20%);
-    transition-duration: var(--transition-duration);
-    opacity: 0;
+    transform: translateX(-20%) !important;
+    transition-duration: var(--transition-duration) !important;
+    opacity: 0 !important;
 }
 
 .hidden-mobile {

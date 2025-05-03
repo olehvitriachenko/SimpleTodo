@@ -47,7 +47,7 @@
             content: '';
             @include square(rem(21));
             position: absolute;
-            background: url('./icons/search-icon.svg') center/contain no-repeat;
+            background: url('icons/search-icon.svg') center/contain no-repeat;
             top: 50%;
             right: rem(16);
             transform: translateY(-50%);
@@ -58,7 +58,7 @@
             content: '';
             @include square(rem(21));
             position: absolute;
-            background: url('./icons/search-icon-night.svg') center/contain no-repeat;
+            background: url('icons/search-icon-night.svg') center/contain no-repeat;
             top: 50%;
             right: rem(16);
             transform: translateY(-50%);

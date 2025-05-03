@@ -400,7 +400,7 @@ h2 {
   width: 1.3125rem;
   height: 1.3125rem;
   position: absolute;
-  background: url("../../icons/search-icon-night.svg") center/contain no-repeat;
+  background: url("../icons/search-icon-night.svg") center/contain no-repeat;
   top: 50%;
   right: 1rem;
   transform: translateY(-50%);

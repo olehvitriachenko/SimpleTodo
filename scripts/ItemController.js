@@ -62,6 +62,7 @@ class ItemController {
                     taskItemElement.remove()
                     console.log('Task deleted')
                     saveContent()
+
                     hideEmptyBackground(this.ulOfTasksElement, this.emptyBackgroundElement, this.stateClasses.hidden)
                 }, 200)
             }

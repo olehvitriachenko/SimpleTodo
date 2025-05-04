@@ -1,4 +1,7 @@
+import { hideEmptyBackground } from "./utils.js"
+
 export function saveContent() {
+
     //Сохраняем ссылку на элементы туду.
     const dynamicItems = document.querySelectorAll('[data-js-task-item]')
     // let dataDynamicItems = JSON.parse(localStorage.getItem('task-value')) || {}
@@ -19,6 +22,9 @@ export function saveContent() {
 }
 
 export function loadContent() {
+    const emptyBackgroundElement = document.querySelector('[data-js-empty]')
+    const hiddenClass = 'hidden'
+
     // Cохраняем ссылку на список
     const ulElement = document.querySelector('[data-js-ul-list]')
 
@@ -79,5 +85,6 @@ export function loadContent() {
         }
 
         ulElement.appendChild(taskItemElement)
+        hideEmptyBackground(ulElement, emptyBackgroundElement, hiddenClass)
     }
 }

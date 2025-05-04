@@ -2,6 +2,7 @@ export function hideEmptyBackground(ulOfTasksElement, emptyBackgroundElement, hi
     if (ulOfTasksElement.children.length > 0) {
         emptyBackgroundElement.classList.add(hiddenClass);
     } else {
-        emptyBackgroundElement.classList.toggle(hiddenClass);
+        emptyBackgroundElement.classList.remove(hiddenClass);
     }
 }
+

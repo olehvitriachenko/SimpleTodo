@@ -1,3 +1,4 @@
+import { saveContent } from "./utils/localStorage.js"
 import { hideEmptyBackground } from "./utils/utils.js"
 
 class ItemController {
@@ -11,6 +12,7 @@ class ItemController {
         emptyBackground: '[data-js-empty]',
         editButton: '[data-js-edit-task]',
         trashButton: '[data-js-delete-task]',
+        checkbox: '[data-js-task-checkbox]',
     }
 
     stateClasses = {
@@ -48,7 +50,7 @@ class ItemController {
                 this.taskNameInputElement.value = editTitleElement.textContent
                 // Заменяем значение редактируемой цели, сохраняем елемент таргета.
                 this.currentEditingTask = editItemElement
-
+                saveContent()
             }
         }
         if (targetTrash) {
@@ -58,10 +60,18 @@ class ItemController {
 
                 setTimeout(() => {
                     taskItemElement.remove()
-                    hideEmptyBackground(this.ulOfTasksElement, this.emptyBackgroundElement, this.stateClasses.hidden)
                     console.log('Task deleted')
+                    saveContent()
+                    hideEmptyBackground(this.ulOfTasksElement, this.emptyBackgroundElement, this.stateClasses.hidden)
                 }, 200)
             }
+        }
+
+    }
+    onCheckboxHandler = (event) => {
+        const checkbox = event.target.closest(this.selectors.checkbox)
+        if (checkbox) {
+            saveContent()
         }
     }
 
@@ -72,6 +82,7 @@ class ItemController {
 
     bindEvents() {
         this.ulOfTasksElement.addEventListener('click', this.onClickHandler)
+        this.ulOfTasksElement.addEventListener('change', this.onCheckboxHandler)
     }
 }
 

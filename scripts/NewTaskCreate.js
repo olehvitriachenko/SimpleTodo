@@ -1,4 +1,5 @@
 import { hideEmptyBackground } from "./utils/utils.js"
+import { saveContent } from "./utils/localStorage.js"
 import ItemController from "./ItemController.js"
 
 class NewTaskCreate {
@@ -62,6 +63,8 @@ class NewTaskCreate {
             this.itemController.currentEditingTask = null
             this.taskNameInputElement.value = ''
             this.modalMenuElement.classList.remove(this.stateClasses.isActive)
+            saveContent();
+
         }
         else {
             const taskItemElement = document.createElement('li')
@@ -71,7 +74,7 @@ class NewTaskCreate {
 
             taskItemElement.innerHTML = `
             <form action="" class="task-value__form">
-            <input type="checkbox" class="task-value__input checkbox">
+            <input type="checkbox" class="task-value__input checkbox" data-js-task-checkbox>
             <h2 class="task-value__title" data-js-title-of-item>${taskName}</h2>
             </form>
             <div class="task-value__option">
@@ -103,8 +106,9 @@ class NewTaskCreate {
             this.ulOfTasksElement.appendChild(taskItemElement)
             this.taskNameInputElement.value = ''
             this.modalMenuElement.classList.remove(this.stateClasses.isActive);
-            hideEmptyBackground(this.ulOfTasksElement, this.emptyBackgroundElement, this.stateClasses.hidden)
+            saveContent();
         }
+        hideEmptyBackground(this.ulOfTasksElement, this.emptyBackgroundElement, this.stateClasses.hidden)
     }
 
     bindEvents() {

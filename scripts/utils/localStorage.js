@@ -76,12 +76,12 @@ export function loadContent() {
         `
 
         const checkbox = taskItemElement.querySelector('[data-js-task-checkbox]')
+        const title = taskItemElement.querySelector('[data-js-title-of-item]')
         checkbox.checked = value
 
         if (value) {
-            const title = taskItemElement.querySelector('[data-js-title-of-item]')
-            title.classList.add('comleted')
-            checkbox.classList.add('comleted')
+            title.classList.add('complete')
+            checkbox.classList.add('complete')
         }
 
         ulElement.appendChild(taskItemElement)

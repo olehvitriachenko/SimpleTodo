@@ -29,6 +29,14 @@
     opacity: 0 !important;
 }
 
+.complete {
+    &:checked {
+        background-color: var(--color-accent);
+    }
+
+    text-decoration: line-through;
+}
+
 .hidden-mobile {
     @include mobile {
         display: none !important;

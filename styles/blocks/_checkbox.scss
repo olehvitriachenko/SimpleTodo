@@ -1,7 +1,26 @@
 @use '../helpers' as *;
 
 .checkbox {
-    @include square(rem(26));
+    appearance: none;
 
+    @include square(rem(26));
+    border-radius: rem(3);
     border: var(--border);
+    position: relative;
+    padding: 4px;
+
+
+    &:checked {
+        background-color: var(--color-accent);
+        transition-duration: var(--transition-duration);
+        border-radius: rem(11);
+
+        &::after {
+            position: absolute;
+            content: '✔';
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+    }
 }

@@ -1,5 +1,4 @@
 import { saveContent } from "./utils/localStorage.js"
-import { hideEmptyBackground } from "./utils/utils.js"
 
 class itemState {
     selectors = {

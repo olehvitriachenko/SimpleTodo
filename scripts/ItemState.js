@@ -3,11 +3,13 @@ import { hideEmptyBackground } from "./utils/utils.js"
 
 class itemState {
     selectors = {
+        searchInput: '[data-js-search-input]',
         select: '[data-js-select]',
         ulOfTasks: '[data-js-ul-list]',
         emptyBackground: '[data-js-empty]',
         taskItem: '[data-js-task-item]',
         checkbox: '[data-js-task-checkbox]',
+        title: '[data-js-title-of-item]'
     }
     stateClasses = {
         complete: 'complete',
@@ -18,22 +20,39 @@ class itemState {
         this.selectElement = document.querySelector(this.selectors.select)
         this.tasksListElement = document.querySelector(this.selectors.ulOfTasks)
         this.emptyBackgroundElement = document.querySelector(this.selectors.emptyBackground)
-        this.bindEvents()
+        this.searchInputElement = document.querySelector(this.selectors.searchInput)
 
-        if (!this.selectElement || !this.tasksListElement || !this.emptyBackgroundElement) {
-            console.error('Required elements not found. Check your selectors.');
-            return;
-        }
+        this.bindEvents()
+    }
+
+    onSearch = () => {
+        const taskItems = this.tasksListElement.querySelectorAll(this.selectors.taskItem)
+
+        const searchValue = this.searchInputElement.value.toLowerCase().trim()
+
+        taskItems.forEach((item) => {
+            const title = item.querySelector(this.selectors.title)
+
+            if (title) {
+                const taskText = title.textContent.toLowerCase()
+
+                if (taskText.includes(searchValue)) {
+                    item.style.visibility = 'visible';
+                } else {
+                    item.style.visibility = 'hidden';
+                }
+            }
+        })
+
+
     }
 
     selectValue = () => {
         const hidden = this.stateClasses.hidden
-
         const taskItems = this.tasksListElement.querySelectorAll(this.selectors.taskItem)
         const selectData = this.selectElement.value
 
         taskItems.forEach((taskItem) => {
-
             const checkbox = taskItem.querySelector(this.selectors.checkbox)
             const isChecked = checkbox.checked
 
@@ -68,6 +87,7 @@ class itemState {
     }
 
     bindEvents() {
+        this.searchInputElement.addEventListener('input', this.onSearch)
         this.selectElement.addEventListener('change', this.selectValue)
         this.tasksListElement.addEventListener('change', this.checkboxState)
     }
